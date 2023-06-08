@@ -2,7 +2,9 @@ import webbrowser
 import os
 from fpdf import FPDF
 from filestack import Client
-
+from dotenv import load_dotenv
+load_dotenv()
+my_api_key = os.getenv("FILE_SHARE_API_KEY")
 
 BORDER = 0
 
@@ -53,7 +55,7 @@ class PdfReport:
 
 
 class FileSharer:
-    def __init__(self, filepath, api_key="AR8HFpvSRnSKCvQp78IOoz"):
+    def __init__(self, filepath, api_key=my_api_key):
         self.filepath = filepath
         self.api_key = api_key
 
